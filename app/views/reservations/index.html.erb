@@ -9,6 +9,7 @@
       <th>Time start</th>
       <th>Time end</th>
       <th>Status</th>
+      <th>Room</th>
       <th>Group</th>
       <th>Activity</th>
       <th>Person</th>
@@ -20,10 +21,11 @@
   <tbody>
     <% @reservations.each do |reservation| %>
       <tr>
-        <td><%= reservation.reserve_date %></td>
-        <td><%= reservation.time_start %></td>
-        <td><%= reservation.time_end %></td>
+        <td><%= reservation.reserve_date.to_s(:long) %></td>
+        <td><%= reservation.time_start.strftime('%l:%M %p') %></td>
+        <td><%= reservation.time_end.strftime('%l:%M %p') %></td>
         <td><%= reservation.status %></td>
+        <th><%= reservation.room.name %></th>
         <td><%= reservation.group %></td>
         <td><%= reservation.activity %></td>
         <td><%= reservation.person %></td>

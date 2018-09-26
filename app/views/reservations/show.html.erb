@@ -2,17 +2,17 @@
 
 <p>
   <strong>Reserve date:</strong>
-  <%= @reservation.reserve_date %>
+  <%= @reservation.reserve_date.to_s(:long) %>
 </p>
 
 <p>
   <strong>Time start:</strong>
-  <%= @reservation.time_start %>
+  <%= @reservation.time_start.strftime('%l:%M %p') %>
 </p>
 
 <p>
   <strong>Time end:</strong>
-  <%= @reservation.time_end %>
+  <%= @reservation.time_end.strftime('%l:%M %p') %>
 </p>
 
 <p>
@@ -38,6 +38,11 @@
 <p>
   <strong>Phone:</strong>
   <%= @reservation.phone %>
+</p>
+
+<p>
+  <strong>Room:</strong>
+  <%= @reservation.room.name %>
 </p>
 
 <%= link_to 'Edit', edit_reservation_path(@reservation) %> |
