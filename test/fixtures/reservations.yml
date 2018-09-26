@@ -1,0 +1,21 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  reserve_date: 2018-09-26
+  time_start: 2018-09-26 20:57:23
+  time_end: 2018-09-26 20:57:23
+  status: MyString
+  group: MyString
+  activity: MyString
+  person: MyString
+  phone: MyString
+
+two:
+  reserve_date: 2018-09-26
+  time_start: 2018-09-26 20:57:23
+  time_end: 2018-09-26 20:57:23
+  status: MyString
+  group: MyString
+  activity: MyString
+  person: MyString
+  phone: MyString
