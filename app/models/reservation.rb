@@ -14,6 +14,14 @@ class Reservation < ApplicationRecord
   validates_presence_of :time_start, :time_end
   validate :time_start_cannot_be_in_the_past, :time_end_is_after_time_start, :reserve_date_cannot_be_in_the_past
   
+  # See https://stackoverflow.com/questions/12181444/ruby-combine-date-and-time-objects-into-a-datetime...
+  # ...for possible issues on time zones and daylight savings
+  def dt_start
+    d = reserve_date
+    t = time_start
+    dt_start = DateTime.new(d.year, d.month, d.day, t.hour, t.min, t.sec, t.zone)
+  end
+  
   #Custom Validations
   private
     def time_end_is_after_time_start
@@ -30,8 +38,9 @@ class Reservation < ApplicationRecord
       end
     end
     
+    #dt_start was used instaed of time_start because dt_start takes into account the date chosen by user
     def time_start_cannot_be_in_the_past
-      if time_start.present? && time_start < Time.now
+      if time_start.present? && dt_start < Time.now
         errors.add(:time_start, "can't be in the past")
       end
     end
