@@ -3,60 +3,69 @@
 
 <div class="container-fluid">
     
-    <h1>Reservations</h1>
-    
-    
-    <table class="table table-hover">
-      <thead>
+  <h1>Reservations</h1>
+  
+  <%= render 'reservations/search' %>
+  
+  <table class="table">
+    <thead class="table-dark">
+      <tr>
+        <th scope="col">#</th>
+        <th scope="col">Date</th>
+        <th scope="col">Time</th>
+        <th scope="col">Duration</th>
+        
+        <th scope="col">Status</th>
+        <%#= content_tag :th, sort_link(@q, :status, 'Status') %>
+        <th scope="col">Room</th>
+        <%#= content_tag :th, sort_link(@q, :room, 'Room') %>
+        <th scope="col">Group</th>
+        <%#= content_tag :th, sort_link(@q, :group, 'Group') %>
+        <th scope="col">Activity</th>
+        <%#= content_tag :th, sort_link(@q, :activity, 'Activity') %>
+        <th scope="col">Person</th>
+        <%#= content_tag :th, sort_link(@q, :person, 'Person') %>
+        
+        <th scope="col">Phone</th>
+        <th scope="col">Email</th>
+        <!--<th scope="col">Actions</th>-->
+      </tr>
+    </thead>
+  
+    <tbody>
+      <% @reservations.each do |reservation| %>
         <tr>
-          <th scope="col">#</th>
-          <th scope="col">Reserve Date</th>
-          <th scope="col">Time</th>
-          <th scope="col">Duration</th>
-          <th scope="col">Status</th>
-          <th scope="col">Room</th>
-          <th scope="col">Group</th>
-          <th scope="col">Activity</th>
-          <th scope="col">Person</th>
-          <th scope="col">Phone</th>
-          <th scope="col">Email</th>
-          <!--<th scope="col">Actions</th>-->
+          <td scope="row"><%= link_to ("rsv #{reservation.id}"), reservation %></td>
+          <td scope="row"><%= reservation.reserve_date.to_s(:short) %></td>
+          <td scope="row">
+            <%= reservation.time_start.strftime('%l:%M %p') %>
+            <span> - </span>
+            <%= reservation.time_end.strftime('%l:%M %p') %>
+          </td>
+          <!--<td scope="row"><%#= reservation.time_end.strftime('%l:%M %p') %></td>-->
+          <td scope="row"><%= reservation.duration %></td>
+          <td scope="row"><%= reservation.status %></td>
+          <th scope="row"><%= reservation.room.name %></th>
+          <td scope="row"><%= reservation.group %></td>
+          <td scope="row"><%= reservation.activity %></td>
+          <td scope="row"><%= reservation.person %></td>
+          <td scope="row"><%= reservation.phone %></td>
+          <td scope="row"><%= reservation.email %></td>
+          <!--<td>-->
+          <!--  <div class="index-table-actions">-->
+          <!--  <%#= link_to 'Show', reservation, :class => 'btn btn-xs btn-info' %>-->
+          <!--  <%#= link_to 'Edit', edit_reservation_path(reservation), :class => 'btn btn-xs btn-warning' %>-->
+          <!--  <%#= link_to 'Destroy', reservation, method: :delete, data: { confirm: 'Are you sure?' }, :class => 'btn btn-xs btn-danger' %>-->
+          <!--  </div>-->
+          <!--</td>-->
         </tr>
-      </thead>
-    
-      <tbody>
-        <% @reservations.each do |reservation| %>
-          <tr>
-            <td scope="row"><%= link_to ("rsv #{reservation.id}"), reservation %></td>
-            <td scope="row"><%= reservation.reserve_date.to_s(:short) %></td>
-            <td scope="row">
-              <%= reservation.time_start.strftime('%l:%M %p') %>
-              <span> - </span>
-              <%= reservation.time_end.strftime('%l:%M %p') %>
-            </td>
-            <!--<td scope="row"><%#= reservation.time_end.strftime('%l:%M %p') %></td>-->
-            <td scope="row"><%= reservation.duration %></td>
-            <td scope="row"><%= reservation.status %></td>
-            <th scope="row"><%= reservation.room.name %></th>
-            <td scope="row"><%= reservation.group %></td>
-            <td scope="row"><%= reservation.activity %></td>
-            <td scope="row"><%= reservation.person %></td>
-            <td scope="row"><%= reservation.phone %></td>
-            <td scope="row"><%= reservation.email %></td>
-            <!--<td>-->
-            <!--  <div class="index-table-actions">-->
-            <!--  <%#= link_to 'Show', reservation, :class => 'btn btn-xs btn-info' %>-->
-            <!--  <%#= link_to 'Edit', edit_reservation_path(reservation), :class => 'btn btn-xs btn-warning' %>-->
-            <!--  <%#= link_to 'Destroy', reservation, method: :delete, data: { confirm: 'Are you sure?' }, :class => 'btn btn-xs btn-danger' %>-->
-            <!--  </div>-->
-            <!--</td>-->
-          </tr>
-        <% end %>
-      </tbody>
-    </table>
+      <% end %>
+    </tbody>
+  </table>
+  
+  <br>
+  <%= link_to 'New Reservation', new_reservation_path %>
 </div>  
 
-<br>
 
-<%= link_to 'New Reservation', new_reservation_path %>
 

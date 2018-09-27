@@ -17,6 +17,9 @@ gem 'uglifier', '>= 1.3.0'
 # Bootstrap
 gem 'bootstrap', '~> 4.1.3'
 
+# Ransack
+gem 'ransack', github: 'activerecord-hackery/ransack'
+
 # JQuery
 gem 'jquery-rails'
 

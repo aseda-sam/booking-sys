@@ -1,0 +1,9 @@
+<%= search_form_for @q, :html => { :class => "form-inline my-2 my-lg-0" } do |f| %>
+    
+    <%#= f.label "Search", :class => 'control-label col-lg-2' %>
+    <%= f.search_field :person_or_group_or_activity_cont, :class => 'form-control mr-sm-2', :placeholder => "Search" %>
+
+    <%= f.submit nil, :class => 'btn btn-outline-success my-2 my-sm-0' %>
+  
+<% end %>
+
