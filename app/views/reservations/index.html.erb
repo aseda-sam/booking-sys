@@ -1,21 +1,23 @@
+
 <p id="notice"><%= notice %></p>
 
 <h1>Reservations</h1>
 
+
 <table class="table table-striped">
-  <thead>
+  <thead class="table-dark">
     <tr>
-      <th>Reserve date</th>
-      <th>Time start</th>
-      <th>Time end</th>
-      <th>Status</th>
-      <th>Room</th>
-      <th>Group</th>
-      <th>Activity</th>
-      <th>Person</th>
-      <th>Phone</th>
-      <th>Email</th>
-      <th>Actions</th>
+      <th scope="col">Reserve date</th>
+      <th scope="col">Time start</th>
+      <th scope="col">Time end</th>
+      <th scope="col">Status</th>
+      <th scope="col">Room</th>
+      <th scope="col">Group</th>
+      <th scope="col">Activity</th>
+      <th scope="col">Person</th>
+      <th scope="col">Phone</th>
+      <th scope="col">Email</th>
+      <th scope="col">Actions</th>
       <th colspan="3"></th>
     </tr>
   </thead>
@@ -23,17 +25,17 @@
   <tbody>
     <% @reservations.each do |reservation| %>
       <tr>
-        <td><%= reservation.reserve_date.to_s(:long) %></td>
-        <td><%= reservation.time_start.strftime('%l:%M %p') %></td>
-        <td><%= reservation.time_end.strftime('%l:%M %p') %></td>
-        <td><%= reservation.status %></td>
-        <th><%= reservation.room.name %></th>
-        <td><%= reservation.group %></td>
-        <td><%= reservation.activity %></td>
-        <td><%= reservation.person %></td>
-        <td><%= reservation.phone %></td>
-        <td><%= reservation.email %></td>
-        <td>
+        <td scope="row"><%= reservation.reserve_date.to_s(:short) %></td>
+        <td scope="row"><%= reservation.time_start.strftime('%l:%M %p') %></td>
+        <td scope="row"><%= reservation.time_end.strftime('%l:%M %p') %></td>
+        <td scope="row"><%= reservation.status %></td>
+        <th scope="row"><%= reservation.room.name %></th>
+        <td scope="row"><%= reservation.group %></td>
+        <td scope="row"><%= reservation.activity %></td>
+        <td scope="row"><%= reservation.person %></td>
+        <td scope="row"><%= reservation.phone %></td>
+        <td scope="row"><%= reservation.email %></td>
+        <td scope="row">
           <%= link_to 'Show', reservation, :class => 'btn btn-xs btn-info' %>
           <%= link_to 'Edit', edit_reservation_path(reservation), :class => 'btn btn-xs btn-warning' %>
           <%= link_to 'Destroy', reservation, method: :delete, data: { confirm: 'Are you sure?' }, :class => 'btn btn-xs btn-danger' %>

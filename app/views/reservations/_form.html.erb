@@ -11,59 +11,81 @@
     </div>
   <% end %>
 
-  <div class="field">
-    <%= form.label :reserve_date %>
-    <%= form.date_select :reserve_date %>
+  <div class="form-group">
+    <%= form.label :date, :class => 'control-label col-lg-2' %>
+    <div class="col-lg-10">
+      <%= form.date_select :reserve_date %>
+    </div>
   </div>
 
-  <div class="field">
-    <%= form.label :time_start %>
-    <%= form.time_select :time_start %>
+  <div class="form-group">
+    <%= form.label :time_start, :class => 'control-label col-lg-2' %>
+    <div class="col-lg-10">
+      <%= form.time_select :time_start, {minute_step: 15} %>
+    </div>
   </div>
 
-  <div class="field">
-    <%= form.label :time_end %>
-    <%= form.time_select :time_end %>
+  <div class="form-group">
+    <%= form.label :time_end, :class => 'control-label col-lg-2' %>
+    <div class="col-lg-10">
+      <%= form.time_select :time_end, {minute_step: 15} %>
+    </div>
   </div>
 
-  <div class="field">
-    <%= form.label :status %>
-    <%= form.text_field :status %>
+  <div class="form-group">
+    <%= form.label :status, :class => 'control-label col-lg-2' %>
+    <div class="col-lg-10">
+      <%= form.text_field :status, :class => 'form-control' %>
+    </div>
   </div>
 
-  <div class="field">
-    <%= form.label :group %>
-    <%= form.text_field :group %>
+  <div class="form-group">
+    <%= form.label :group, :class => 'control-label col-lg-2' %>
+    <div class="col-lg-10">
+      <%= form.text_field :group, :class => 'form-control' %>
+    </div>
   </div>
 
-  <div class="field">
-    <%= form.label :activity %>
-    <%= form.text_field :activity %>
+  <div class="form-group">
+    <%= form.label :activity, :class => 'control-label col-lg-2' %>
+    <div class="col-lg-10">
+      <%= form.text_field :activity, :class => 'form-control' %>
+    </div>
   </div>
 
-  <div class="field">
-    <%= form.label :person %>
-    <%= form.text_field :person %>
+  <div class="form-group">
+    <%= form.label :person, :class => 'control-label col-lg-2' %>
+    <div class="col-lg-10">
+      <%= form.text_field :person, :class => 'form-control' %>
+    </div>
   </div>
 
-  <div class="field">
-    <%= form.label :phone %>
-    <%= form.text_field :phone %>
+  <div class="form-group">
+    <%= form.label :phone, :class => 'control-label col-lg-2' %>
+    <div class="col-lg-10">
+      <%= form.text_field :phone, :class => 'form-control' %>
+    </div>
   </div>
   
-  <div class="field">
-    <%= form.label :email %>
-    <%= form.text_field :email %>
+  <div class="form-group">
+    <%= form.label :email, :class => 'control-label col-lg-2' %>
+    <div class="col-lg-10">
+      <%= form.text_field :email, :class => 'form-control' %>
+    </div>
   </div>
   
-  <!--<div class="field">-->
-  <!--  <%#= form.label "Room" %>-->
-  <!--  <%#= form.text_field :room_id %>-->
+  <!--<div class="form-group">-->
+  <!--  <%#= form.label "Room", :class => 'control-label col-lg-2' %>-->
+  <!--<div class="col-lg-10">-->
+    <!--  <%#= form.text_field :room_id %>-->
+  <!--</div>-->
   <!--</div>-->
   
-  <div class="field">
-    <%= form.label "Room" %>
-    <%= form.collection_select :room_id, Room.all, :id, :name, prompt: true %>
+  <div class="form-group">
+    <%= form.label "Room", :class => 'control-label col-lg-2' %>
+    <div class="col-lg-10">
+      <%= form.collection_select :room_id, Room.all, :id, :name, prompt: true %>
+    </div>
   </div>
 
   <div class="actions">
