@@ -56,9 +56,16 @@
     <%= form.text_field :email %>
   </div>
   
+  <!--<div class="field">-->
+  <!--  <%#= form.label "Room" %>-->
+  <!--  <%#= form.text_field :room_id %>-->
+  <!--</div>-->
+  
   <div class="field">
     <%= form.label "Room" %>
-    <%= form.text_field :room_id %>
+    <%= form.collection_select :room_id, Room.all, :id, :name, prompt: true %>
+    <%#= form.collection_select(:reservation, Room.all, :id, :name, prompt: true, include_blank: true) %>
+    <%#= form.collection_select(:reservation, :room_id, Room.all, :id, :name, prompt: true) %>
   </div>
 
   <div class="actions">
