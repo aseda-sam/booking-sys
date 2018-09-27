@@ -12,7 +12,11 @@ class Reservation < ApplicationRecord
   
   # Validates Date and Time
   validates_presence_of :time_start, :time_end
-  validate :time_start_cannot_be_in_the_past, :time_end_is_after_time_start, :reserve_date_cannot_be_in_the_past
+  validate :time_end_is_after_time_start, :reserve_date_cannot_be_in_the_past
+  
+  # Work on this. It's giving errors
+  # validate :time_start_cannot_be_in_the_past
+  
   
   # See https://stackoverflow.com/questions/12181444/ruby-combine-date-and-time-objects-into-a-datetime...
   # ...for possible issues on time zones and daylight savings
@@ -44,5 +48,6 @@ class Reservation < ApplicationRecord
         errors.add(:time_start, "can't be in the past")
       end
     end
+
 
 end
