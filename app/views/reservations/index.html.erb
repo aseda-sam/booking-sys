@@ -2,7 +2,7 @@
 
 <h1>Reservations</h1>
 
-<table>
+<table class="table table-striped">
   <thead>
     <tr>
       <th>Reserve date</th>
@@ -15,6 +15,7 @@
       <th>Person</th>
       <th>Phone</th>
       <th>Email</th>
+      <th>Actions</th>
       <th colspan="3"></th>
     </tr>
   </thead>
@@ -32,9 +33,11 @@
         <td><%= reservation.person %></td>
         <td><%= reservation.phone %></td>
         <td><%= reservation.email %></td>
-        <td><%= link_to 'Show', reservation %></td>
-        <td><%= link_to 'Edit', edit_reservation_path(reservation) %></td>
-        <td><%= link_to 'Destroy', reservation, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td>
+          <%= link_to 'Show', reservation, :class => 'btn btn-xs btn-info' %>
+          <%= link_to 'Edit', edit_reservation_path(reservation), :class => 'btn btn-xs btn-warning' %>
+          <%= link_to 'Destroy', reservation, method: :delete, data: { confirm: 'Are you sure?' }, :class => 'btn btn-xs btn-danger' %>
+        </td>
       </tr>
     <% end %>
   </tbody>
