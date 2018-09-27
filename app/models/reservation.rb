@@ -1,4 +1,8 @@
 class Reservation < ApplicationRecord
+  
+  # Without this helper the method I defined - duration won't work
+  include ActionView::Helpers::DateHelper
+  
   belongs_to :room
   
   # Email Validations
@@ -24,6 +28,11 @@ class Reservation < ApplicationRecord
     d = reserve_date
     t = time_start
     dt_start = DateTime.new(d.year, d.month, d.day, t.hour, t.min, t.sec, t.zone)
+  end
+  
+  # Improve code to display in minutes when duration is short
+  def duration
+    dur = distance_of_time_in_words(time_start, time_end)
   end
   
   #Custom Validations

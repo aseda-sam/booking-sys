@@ -7,11 +7,12 @@
     
     
     <table class="table table-hover">
-      <thead class="thead-light">
+      <thead>
         <tr>
+          <th scope="col">#</th>
           <th scope="col">Reserve Date</th>
-          <th scope="col">Time start</th>
-          <th scope="col">Time end</th>
+          <th scope="col">Time</th>
+          <th scope="col">Duration</th>
           <th scope="col">Status</th>
           <th scope="col">Room</th>
           <th scope="col">Group</th>
@@ -19,16 +20,22 @@
           <th scope="col">Person</th>
           <th scope="col">Phone</th>
           <th scope="col">Email</th>
-          <th scope="col">Actions</th>
+          <!--<th scope="col">Actions</th>-->
         </tr>
       </thead>
     
       <tbody>
         <% @reservations.each do |reservation| %>
           <tr>
+            <td scope="row"><%= link_to ("rsv #{reservation.id}"), reservation %></td>
             <td scope="row"><%= reservation.reserve_date.to_s(:short) %></td>
-            <td scope="row"><%= reservation.time_start.strftime('%l:%M %p') %></td>
-            <td scope="row"><%= reservation.time_end.strftime('%l:%M %p') %></td>
+            <td scope="row">
+              <%= reservation.time_start.strftime('%l:%M %p') %>
+              <span> - </span>
+              <%= reservation.time_end.strftime('%l:%M %p') %>
+            </td>
+            <!--<td scope="row"><%#= reservation.time_end.strftime('%l:%M %p') %></td>-->
+            <td scope="row"><%= reservation.duration %></td>
             <td scope="row"><%= reservation.status %></td>
             <th scope="row"><%= reservation.room.name %></th>
             <td scope="row"><%= reservation.group %></td>
@@ -36,11 +43,13 @@
             <td scope="row"><%= reservation.person %></td>
             <td scope="row"><%= reservation.phone %></td>
             <td scope="row"><%= reservation.email %></td>
-            <td>
-              <%= link_to 'Show', reservation, :class => 'btn btn-xs btn-info' %>
-              <%= link_to 'Edit', edit_reservation_path(reservation), :class => 'btn btn-xs btn-warning' %>
-              <%= link_to 'Destroy', reservation, method: :delete, data: { confirm: 'Are you sure?' }, :class => 'btn btn-xs btn-danger' %>
-            </td>
+            <!--<td>-->
+            <!--  <div class="index-table-actions">-->
+            <!--  <%#= link_to 'Show', reservation, :class => 'btn btn-xs btn-info' %>-->
+            <!--  <%#= link_to 'Edit', edit_reservation_path(reservation), :class => 'btn btn-xs btn-warning' %>-->
+            <!--  <%#= link_to 'Destroy', reservation, method: :delete, data: { confirm: 'Are you sure?' }, :class => 'btn btn-xs btn-danger' %>-->
+            <!--  </div>-->
+            <!--</td>-->
           </tr>
         <% end %>
       </tbody>
