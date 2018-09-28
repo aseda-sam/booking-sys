@@ -21,9 +21,16 @@
 
 @media (min-width: 1200px) {
     .container{
-        max-width: 1400px;
+        max-width: 1200px;
     }
 }
+
+.table-wrapper-scroll-y {
+  margin-top: 10px;
+  display: block;
+  max-height: 500px;
+  overflow-y: auto;
+}  
 
 .index-table-actions {
   margin: 0px;
@@ -45,6 +52,7 @@
 // Styles for footer
 footer {
   margin-top: 45px;
+  margin-top: 20px;
   padding-top: 5px;
   border-top: 1px solid #eaeaea;
   color: #777;
