@@ -60,6 +60,7 @@ class ReservationsController < ApplicationController
     @reservation.destroy
     # flash[:danger] = "Reservation was successfully destroyed."
     respond_to do |format|
+      format.js
       format.html { redirect_to reservations_url, notice: 'Reservation was successfully destroyed.' }
       format.json { head :no_content }
     end

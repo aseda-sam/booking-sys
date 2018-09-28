@@ -13,7 +13,7 @@
     <!--</div>-->
     
     <div>
-      <%= link_to 'New Reservation', new_reservation_path, :class => 'btn btn-primary' %>  
+      <%= link_to 'New Reservation', new_reservation_path, :class => 'btn btn-primary' %>
     </div>
   </div>
   
@@ -46,7 +46,7 @@
             <!--<th scope="col">Phone</th>-->
             <!--<th scope="col">Email</th>-->
             
-            <!--<th scope="col">Actions</th>-->
+            <th scope="col">Actions</th>
           </tr>
         </thead>
       
@@ -72,13 +72,14 @@
               <!--<td scope="row"><%#= reservation.phone %></td>-->
               <!--<td scope="row"><%#= reservation.email %></td>-->
               
-              <!--<td>-->
-              <!--  <div class="index-table-actions">-->
+              <td>
+                <div class="index-table-actions">
               <!--  <%#= link_to 'Show', reservation, :class => 'btn btn-xs btn-info' %>-->
               <!--  <%#= link_to 'Edit', edit_reservation_path(reservation), :class => 'btn btn-xs btn-warning' %>-->
-              <!--  <%#= link_to 'Destroy', reservation, method: :delete, data: { confirm: 'Are you sure?' }, :class => 'btn btn-xs btn-danger' %>-->
-              <!--  </div>-->
-              <!--</td>-->
+                <%= link_to 'Delete', reservation, method: :delete, data: { confirm: 'Are you sure?', remote: true }, 
+                                                            :class => 'btn btn-xs btn-danger delete' %>
+                </div>
+              </td>
             </tr>
           <% end %>
         </tbody>
