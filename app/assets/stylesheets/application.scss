@@ -19,6 +19,12 @@
   margin-bottom: 30px;
 }
 
+@media (min-width: 1200px) {
+    .container{
+        max-width: 1400px;
+    }
+}
+
 .index-table-actions {
   margin: 0px;
   font-size: 10px;
