@@ -1,54 +1,67 @@
-<p id="notice"><%= notice %></p>
+<!--<p id="notice"><%#= notice %></p>-->
 
-<p>
-  <strong>Reserve date:</strong>
-  <%= @reservation.reserve_date.to_s(:long) %>
-</p>
-
-<p>
-  <strong>Time start:</strong>
-  <%= @reservation.time_start.strftime('%l:%M %p') %>
-</p>
-
-<p>
-  <strong>Time end:</strong>
-  <%= @reservation.time_end.strftime('%l:%M %p') %>
-</p>
-
-<p>
-  <strong>Status:</strong>
-  <%= @reservation.status %>
-</p>
-
-<p>
-  <strong>Group:</strong>
-  <%= @reservation.group %>
-</p>
-
-<p>
-  <strong>Activity:</strong>
-  <%= @reservation.activity %>
-</p>
-
-<p>
-  <strong>Person:</strong>
-  <%= @reservation.person %>
-</p>
-
-<p>
-  <strong>Phone:</strong>
-  <%= @reservation.phone %>
-</p>
-
-<p>
-  <strong>Email:</strong>
-  <%= @reservation.email %>
-</p>
-
-<p>
-  <strong>Room:</strong>
-  <%= @reservation.room.name %>
-</p>
-
-<%= link_to 'Edit', edit_reservation_path(@reservation) %> |
-<%= link_to 'Back', reservations_path %>
+<div class="container-fluid">
+  <div class="row">
+    <div class="col-xs-10 col-xs-offset-2">
+      <div class="card card-body bg-faded">
+        <p>
+          <strong>Reserve date:</strong>
+          <%= @reservation.reserve_date.to_s(:long) %>
+        </p>
+        
+        <p>
+          <strong>Time start:</strong>
+          <%= @reservation.time_start.strftime('%l:%M %p') %>
+        </p>
+        
+        <p>
+          <strong>Time end:</strong>
+          <%= @reservation.time_end.strftime('%l:%M %p') %>
+        </p>
+        
+        <p>
+          <strong>Status:</strong>
+          <%= @reservation.status %>
+        </p>
+        
+        <p>
+          <strong>Group:</strong>
+          <%= @reservation.group %>
+        </p>
+        
+        <p>
+          <strong>Activity:</strong>
+          <%= @reservation.activity %>
+        </p>
+        
+        <p>
+          <strong>Person:</strong>
+          <%= @reservation.person %>
+        </p>
+        
+        <p>
+          <strong>Phone:</strong>
+          <%= @reservation.phone %>
+        </p>
+        
+        <p>
+          <strong>Email:</strong>
+          <%= @reservation.email %>
+        </p>
+        
+        <p>
+          <strong>Room:</strong>
+          <%= @reservation.room.name %>
+        </p>
+        
+      </div>
+      
+      <div class="card-actions">
+        <%= link_to 'Edit', edit_reservation_path(@reservation) %> |
+        <%= link_to 'Destroy', @reservation, method: :delete, data: { confirm: 'Are you sure?' } %> |
+        <%= link_to 'Back', reservations_path %>
+      </div>
+        
+    </div>
+  </div>
+</div>
