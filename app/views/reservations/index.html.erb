@@ -27,8 +27,9 @@
         <th scope="col">Person</th>
         <%#= content_tag :th, sort_link(@q, :person, 'Person') %>
         
-        <th scope="col">Phone</th>
-        <th scope="col">Email</th>
+        <!--<th scope="col">Phone</th>-->
+        <!--<th scope="col">Email</th>-->
+        
         <!--<th scope="col">Actions</th>-->
       </tr>
     </thead>
@@ -49,8 +50,10 @@
           <th scope="row"><%= reservation.room.name %></th>
           <td scope="row"><%= reservation.group %></td>
           <td scope="row"><%= reservation.person %></td>
-          <td scope="row"><%= reservation.phone %></td>
-          <td scope="row"><%= reservation.email %></td>
+          
+          <!--<td scope="row"><%#= reservation.phone %></td>-->
+          <!--<td scope="row"><%#= reservation.email %></td>-->
+          
           <!--<td>-->
           <!--  <div class="index-table-actions">-->
           <!--  <%#= link_to 'Show', reservation, :class => 'btn btn-xs btn-info' %>-->
