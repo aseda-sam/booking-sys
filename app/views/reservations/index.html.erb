@@ -6,21 +6,11 @@
     <h1>Reservations</h1>
   </div>  
     
-  <div class="row">
-    
-    <!--<div>-->
-    <!--  <%#= render 'reservations/search' %>  -->
-    <!--</div>-->
-    
-    <div>
-      <%= link_to 'New Reservation', new_reservation_path, :class => 'btn btn-primary' %>
-    </div>
-  </div>
+  <%= render 'reservations/search' %>
   
   <div class="row">
     <div class="table-responsive table-wrapper-scroll-y">
       <table class="table">
-        <caption>List of reservations</caption>
         <thead class="table-dark text-center">
           <tr>
             <th scope="col">#</th>
@@ -84,5 +74,9 @@
         </tbody>
       </table>
     </div>
+  </div>
+  
+  <div>
+    <%= link_to 'New Reservation', new_reservation_path, :class => 'btn btn-primary mt-2' %>
   </div>
 </div>
