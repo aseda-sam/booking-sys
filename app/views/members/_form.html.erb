@@ -1,22 +1,163 @@
-<%= form_with(model: member, local: true) do |form| %>
-  <% if member.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(member.errors.count, "error") %> prohibited this member from being saved:</h2>
-
-      <ul>
-      <% member.errors.full_messages.each do |message| %>
-        <li><%= message %></li>
-      <% end %>
-      </ul>
+<hr>
+<div class = "container contact-form border">
+  <%= form_with(model: member, local: true) do |form| %>
+    <% if member.errors.any? %>
+      <div id="error_explanation">
+        <h2><%= pluralize(member.errors.count, "error") %> prohibited this member from being saved:</h2>
+  
+        <ul>
+        <% member.errors.full_messages.each do |message| %>
+          <li><%= message %></li>
+        <% end %>
+        </ul>
+      </div>
+    <% end %>
+  
+    <div class="row">
+      <div class="input-group mb-3 col-sm">
+        <div class="input-group-prepend">
+          <span class="input-group-text">First Name</span>
+        </div>
+        <%= form.text_field :first_name, :class => 'form-control' %>
+      </div>
+      
+      <div class="input-group mb-3 col-sm">
+        <div class="input-group-prepend">
+          <span class="input-group-text">Middle Name</span>
+        </div>
+        <%= form.text_field :middle_name, :class => 'form-control' %>
+      </div>
+      
+      <div class="input-group mb-3 col-sm">
+        <div class="input-group-prepend">
+          <span class="input-group-text">Last Name</span>
+        </div>
+        <%= form.text_field :last_name, :class => 'form-control' %>
+      </div>
     </div>
+    
+    <div class = "row">
+      <div class="form-group col-sm">
+        <%= form.label :title %>
+        <%= form.text_field :title, :class => 'form-control' %>
+      </div>
+      
+      <div class="form-group col-sm">
+        <%= form.label :gender %><br />
+        <%#= form.text_field :gender, :class => 'form-control' %>
+        <%= form.radio_button :gender, 'Male' %> Male
+        <%= form.radio_button :gender, 'Female' %> Female
+      </div>
+      
+      <div class="form-group col-sm">
+        <%= form.label :marital_status %>
+        <%= form.text_field :marital_status, :class => 'form-control' %>
+      </div>
+    </div>
+    
+    <div class = "row">
+      <div class="form-group col-sm">
+        <%= form.label :postal_address %>
+        <%= form.text_field :postal_address, :class => 'form-control' %>
+      </div>
+      
+        <div class="form-group col-sm">
+        <%= form.label :residential_address %>
+        <%= form.text_field :residential_address, :class => 'form-control' %>
+      </div>
+    </div>
+    
+    <div class = "row">
+      <div class="form-group col-sm">
+        <%= form.label :profession %>
+        <%= form.text_field :profession, :class => 'form-control' %>
+      </div>
+      
+      <div class="form-group col-sm">
+        <%= form.label :work_place %>
+        <%= form.text_field :work_place, :class => 'form-control' %>
+      </div>
+      
+      <div class="form-group col-sm">
+        <%= form.label "Location" %>
+        <%= form.text_field :work_place_location, :class => 'form-control' %>
+      </div>
+    </div>
+    
+    <div class = "row">
+      <div class="form-group col-sm">
+        <%= form.label :phone_home %>
+        <%= form.text_field :phone_home, :class => 'form-control' %>
+      </div>
+      
+      <div class="form-group col-sm">
+        <%= form.label :phone_work %>
+        <%= form.text_field :phone_work, :class => 'form-control' %>
+      </div>
+      
+      <div class="form-group col-sm">
+        <%= form.label :phone_mobile %>
+        <%= form.text_field :phone_mobile, :class => 'form-control' %>
+      </div>
+    </div>
+    
+    <div class = "row">
+      <div class="form-group col-sm">
+        <%= form.label :phone_whatsapp %>
+        <%= form.text_field :phone_whatsapp, :class => 'form-control' %>
+      </div>
+      
+      <div class="form-group col-sm">
+        <%= form.label :email %>
+        <%= form.text_field :email, :class => 'form-control' %>
+      </div>
+    </div>
+    
+    <div class = "row">
+      <div class="form-group col-sm">
+        <%= form.label :date_of_birth %>
+        <%= form.date_select :date_of_birth, :class => 'form-control' %>
+      </div>
+      
+      <div class="form-group col-sm">
+        <%= form.label :place_of_birth %>
+        <%= form.text_field :place_of_birth, :class => 'form-control' %>
+      </div>
+    </div>
+    
+    <div class="form-group">
+      <%= form.label :name_of_spouse %>
+      <%= form.text_field :name_of_spouse, :class => 'form-control' %>
+    </div>
+    
+    <div class="form-group">
+      <%= form.label :church_of_spouse %>
+      <%= form.text_field :church_of_spouse, :class => 'form-control' %>
+    </div>
+    
+    <div class="form-group">
+      <%= form.label :next_of_kin %>
+      <%= form.text_field :next_of_kin, :class => 'form-control' %>
+    </div>
+    
+    <div class="form-group">
+      <%= form.label :next_of_kin_relationship %>
+      <%= form.text_field :next_of_kin_relationship, :class => 'form-control' %>
+    </div>
+    
+    <div class="form-group">
+      <%= form.label :next_of_kin_phone %>
+      <%= form.text_field :next_of_kin_phone, :class => 'form-control' %>
+    </div>
+    
+      <div class="form-group">
+      <%= form.label :next_of_kin_address %>
+      <%= form.text_field :next_of_kin_address, :class => 'form-control' %>
+    </div>
+    
+    <div class="actions">
+      <%= form.submit %>
+    </div>
+    
   <% end %>
-
-  <div class="field">
-    <%= form.label :last_name %>
-    <%= form.text_field :last_name %>
-  </div>
-
-  <div class="actions">
-    <%= form.submit %>
-  </div>
-<% end %>
+</div>

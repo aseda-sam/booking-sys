@@ -1,5 +1,5 @@
 class MembersController < ApplicationController
-  before_action :authenticate_user!, except: [:new, :edit,:create]
+  before_action :authenticate_user!, except: [:new, :edit, :create, :show]
   before_action :set_member, only: [:show, :edit, :update, :destroy]
 
   # GET /members
@@ -70,6 +70,9 @@ class MembersController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def member_params
-      params.require(:member).permit(:last_name)
+      params.require(:member).permit(title, :last_name, :middle_name, :first_name, :gender, :marital_status, :postal_address, :residential_address, 
+                                            :profession, :work_place, :work_place_location, :phone_home, :phone_work, :phone_mobile, :phone_whatsapp, 
+                                            :email, :name_of_spouse, :church_of_spouse, :next_of_kin, :next_of_kin_relationship, 
+                                            :next_of_kin_phone, :next_of_kin_address, :date_of_birth, :place_of_birth)
     end
 end
