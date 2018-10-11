@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
   
+  resources :members
   root to: 'reservations#index'
   
   devise_for :users
